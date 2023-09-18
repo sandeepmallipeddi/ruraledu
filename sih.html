@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>File Upload and Participants</title>
+    <style>
+        /* Basic styling for layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        .container {
+            padding: 20px;
+        }
+        #hamburger-menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        #participants-menu {
+            position: fixed;
+            top: 0;
+            right: -300px; /* Initially hidden to the right */
+            width: 300px;
+            height: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 0px;
+            transition: right 0.3s ease-in-out;
+        }
+        .participant {
+            margin-bottom: 10px;
+            display: block; /* Display participants one below the other */
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h2>Welcome!</h2>
+    <p>This is a simple example of a file upload window and a participants menu.</p>
+    <h1>Upload E-Book and Participants</h1>
+    </header>
+    <div class="container">
+        <!-- Hamburger menu icon -->
+        <div id="hamburger-menu">&#9776;</div>
+        
+        <!-- File upload window -->
+        <input type="file" accept=".pdf, .epub">
+        
+        <!-- Participants window -->
+        <form id="participants-menu">
+            <h2>Participants</h2>
+             <!-- "Select All" checkbox -->
+        <label>
+            <input type="checkbox" id="selectAll"> Select All
+        </label>
+            <!-- Individual checkboxes -->
+            <label class="participant">
+                <input type="checkbox"> Participant 1
+            </label>
+            <label class="participant">
+                <input type="checkbox"> Participant 2
+            </label>
+            <label class="participant">
+                <input type="checkbox"> Participant 3
+            </label>
+            <label class="participant">
+                <input type="checkbox"> Participant 4
+            </label>
+            <label class="participant">
+                <input type="checkbox"> Participant 5
+            </label>
+            <label class="participant">
+                <input type="checkbox"> Participant 6
+            </label>
+            <label class="participant">
+                <input type="checkbox"> Participant 7
+            </label>
+            <label class="participant">
+                <input type="checkbox"> Participant 8
+            </label>
+            <label class="participant">
+                <input type="checkbox"> Participant 9
+            </label>
+            <label class="participant">
+                <input type="checkbox"> Participant 10
+            </label>
+            
+            <!-- Add more participants as needed -->
+        </form>
+    </div>
+    <script>
+        // JavaScript to handle "Sel'ect All" functionality
+        const selectAllCheckbox = document.getElementById('selectAll');
+        const individualCheckboxes = document.querySelectorAll('input[type="checkbox"][name^="item"]');
+
+        selectAllCheckbox.addEventListener('change', function () {
+            for (const checkbox of individualCheckboxes) {
+                checkbox.checked = this.checked;
+            }
+        });
+    </script>
+    
+    <!-- Welcome message -->
+
+    <script>
+        // Function to toggle the participants menu
+        function toggleParticipantsMenu() {
+            const menu = document.getElementById("participants-menu");
+            if (menu.style.right === "-300px") {
+                menu.style.right = "0";
+            } else {
+                menu.style.right = "-300px";
+            }
+        }
+
+        // Add a click event listener to the hamburger menu icon
+        document.getElementById("hamburger-menu").addEventListener("click", toggleParticipantsMenu);
+    </script>
+</body>
+</html>
